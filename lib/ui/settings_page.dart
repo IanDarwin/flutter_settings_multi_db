@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 
 import '../constants.dart';
@@ -45,7 +44,7 @@ class SettingsState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
 
-    return SettingsScreen(title: "iCheckIn Settings",
+    return SettingsScreen(title: "Demo Settings Page",
         children: <Widget>[
           SettingsGroup(title: "Instructor Info",
               children: [

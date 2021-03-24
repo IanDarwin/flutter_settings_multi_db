@@ -14,7 +14,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../constants.dart';
 import '../main.dart' show prefs;
 
-class SettingsCacheProvider extends SharePreferenceCache {
+class SettingsCacheProvider extends CacheProvider {
 
 	SettingsCacheProvider() {
 		print("SettingsCacheProvider::init");
@@ -94,4 +94,61 @@ class SettingsCacheProvider extends SharePreferenceCache {
 			return prefs.containsKey(key);
 		}
 	}
+
+  @override
+  bool getBool(String key) {
+    return prefs.getBool(key);
+  }
+
+  @override
+  double getDouble(String key) {
+    return prefs.getDouble(key);
+  }
+
+  @override
+  int getInt(String key) {
+		return prefs.getInt(key);
+  }
+
+  @override
+  Set<E> getKeys<E>() {
+    // TODO: implement getKeys
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> init() {
+    // Nothing to do here?
+  }
+
+  @override
+  Future<void> remove(String key) {
+    if (key == Constants.KEY_CODE) {
+			storage.delete(key: key);
+		} else {
+    	prefs.remove(key);
+		}
+  }
+
+  @override
+  Future<void> removeAll() {
+    // We can't remove all as some keys are maintained by other parts of the app
+		// We could remove all keys that are defined by us, if we had a list.
+		throw UnimplementedError();
+  }
+
+  @override
+  Future<void> setBool(String key, bool value) {
+    prefs.setBool(key, value);
+  }
+
+  @override
+  Future<void> setDouble(String key, double value) {
+    prefs.setDouble(key, value);
+  }
+
+  @override
+  Future<void> setInt(String key, int value) {
+    prefs.setInt(key, value);
+  }
 }
