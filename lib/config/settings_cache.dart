@@ -6,6 +6,8 @@
 /// the Cache Provider methods to be async, so work around
 /// using asyncMethod().then(...)
 ///
+/// TODO: Remove the hard-coded key; make constr take a list of keys to secure.
+///
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
